@@ -34,59 +34,75 @@ function show() {
     Plotly.newPlot('bar', data);
     
     console.log(sample);
+
+    var trace1 = {
+      x: sample.sample_values,
+        y: sample.otu_ids,
+        type: 'bubble',
+        mode: 'markers',
+      marker: {
+        size:  sample.otu_ids
+      }
+    };
+    
+    var data = [trace1];
+    
+    var layout = {
+      title: 'Marker Size',
+      showlegend: false,
+      height: 600,
+      width: 600
+    };
+    
+    Plotly.newPlot('bubble', data);
+
+
+    var data = [
+      {
+        x: sample.sample_values,
+        y: sample.otu_ids,
+        type: 'bubble',
+        mode: 'markers',
+          marker: {
+          //  color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
+          // opacity: [1, 0.8, 0.6, 0.4],
+          // size: [40, 60, 80, 100]
+      }}
+    ];
+
+
+  
+
+  // Plotly.newPlot('bubble', data);
+
+
+
+
+
+    // var trace1 = {
+    //   x: sample.sample_values,
+    //   y: sample.otu_ids,
+    //   mode: 'markers',
+    //   marker: {
+    //     color: ['rgb(93, 164, 214)', 'rgb(255, 144, 14)',  'rgb(44, 160, 101)', 'rgb(255, 65, 54)'],
+    //     opacity: [1, 0.8, 0.6, 0.4],
+    //     size: [40, 60, 80, 100]
+    //   }
+    // };
+    
+    // var databubble = [trace1];
+    
+    // var layout = {
+    //   title: 'Marker Size and Color',
+    //   showlegend: false,
+    //   height: 600,
+    //   width: 600
+    // };
+    
+    // Plotly.newPlot('plot', data, layout);
+
+
+    
   })
 }
 
-
-
-// d3.json("samples.json").then(function (data) {
-
-// // Grab values from the response json object to build the plots
-// var name = data.name;
-
-// //WHICH WAY IS CORRECT for the other two??
-
-// //Method #1
-// //read in "metadata" 
-// var personId = data.metadata.id
-// var ethnicity = data.metadata.ethnicity;
-// var gender = data.metadata.gender;
-// var age = data.metadata.age;
-// var location = data.metadata.location;
-// var bbtype = data.metadata.bbtype;
-// var wfreq = data.metadata.wfreq;
-// //read in "samples"
-// var sampleID = data.samples.id;
-// var otu_ids = data.samples.otu_ids;
-// var sample_values = data.samples.otu_labels;
-
-// //Method #2
-// //read in "metadata"
-// //read in "samples"
-
-// // Create the Trace
-// var trace1 = {
-//   x: sample_values,
-//   y: otu_ids,
-//   type: "bar"
-// };
-
-// // Create the data array for the plot
-// var barOtuData = [trace1];
-
-// // Define the plot layout
-// var layout = {
-//   title: "Top 10 OTUs",
-//   xaxis: { title: "Count" },
-//   yaxis: { title: "OTU" }
-// };
-
-// var layout = {
-//   title: "'Bar' Chart"
-// };
-
-
-// // Plot the chart to a div tag with id "bar-plot"
-// Plotly.newPlot("bar", data, layout);
-
-// });
